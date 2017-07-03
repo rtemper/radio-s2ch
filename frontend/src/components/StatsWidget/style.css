@@ -1,0 +1,22 @@
+.container {
+  display: inline-block;
+  float: left;
+  padding: 0px 5px 10px 10px;
+  text-align: center;
+  margin: 13px 5px 0px 0px;
+}
+
+.item {
+  color: grey;
+  display: inline-block;
+  text-align: center;
+  margin-right: 15px;
+}
+
+.item:last-child {
+  margin-right: 10px;
+}
+
+.container a {
+  /* margin-left: 3px; */
+}

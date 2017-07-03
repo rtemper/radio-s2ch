@@ -1,0 +1,77 @@
+.container {
+  border: 1px grey dashed;
+  padding: 0px 20px 10px 20px;
+  text-align: center;
+  margin-top: 5px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: 0;
+  display: inline-block;
+}
+
+.info {
+  font-size: 12px;
+  color: grey;
+  margin-top: 15px;
+  text-align: left;
+}
+
+.expanded {
+  height: auto;
+  width: 300px;
+}
+
+.collapsed {
+  height: 60px;
+  width: 60px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+.active {
+  color: grey;
+  margin-bottom: 15px;
+}
+
+.inactive {
+  color: grey;
+  margin-bottom: 15px;
+}
+
+
+.hr {
+  color: grey;
+  border: none;
+  border-top: 1px grey solid ;
+  margin: 0;
+  padding: 0;
+}
+
+.list {
+  padding: 0px 0px 0px 20px;
+}
+
+.list * {
+  margin-bottom: 5px;
+}
+
+.updatesContainer {
+  border: 1px grey dashed;
+  padding: 0px 30px 10px 30px;
+  text-align: center;
+  width: 240px;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.updatesExpanded {
+  height: auto;
+  width: 240px;
+}
+
+.updatesCollapsed {
+  height: 60px;
+  width: 60px;
+  padding: 0px;
+  overflow: hidden;
+}

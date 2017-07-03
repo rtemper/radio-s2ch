@@ -1,0 +1,52 @@
+.container {
+  border: 1px grey dashed;
+  padding: 0px 20px 10px 20px;
+  text-align: center;
+  margin-top: 5px;
+  width: 200px;
+}
+
+.expanded {
+  height: auto;
+  width: 200px;
+}
+
+.collapsed {
+  height: 60px;
+  padding: 0px;
+  overflow: hidden;
+  width: 60px;
+}
+
+.active {
+  color: #013220;
+  margin-bottom: 15px;
+}
+
+.inactive {
+  color: grey;
+  margin-bottom: 15px;
+}
+
+.hr {
+  color: grey;
+  border: none;
+  border-top: 1px grey solid ;
+  margin: 0;
+  padding: 0;
+}
+
+.input {
+  border: 1px grey solid;
+  border-width: 0px 0px 1px 0px;
+  width: 200px;
+  height: 30px;
+  display: block;
+  text-align: center;
+}
+
+.lengthError {
+  margin-top: 10px;
+  font-size: 80%;
+  color: #8B0000;
+}

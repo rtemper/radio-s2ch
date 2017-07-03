@@ -1,0 +1,22 @@
+i {
+  margin-top: 15px;
+}
+.standard {
+  color: grey;
+}
+
+.standard:hover {
+  color: #ADD8E6;
+}
+
+.uploading {
+  color: grey;
+}
+
+.error {
+  color: #8B0000;
+}
+
+.success {
+  color: #228B22;
+}

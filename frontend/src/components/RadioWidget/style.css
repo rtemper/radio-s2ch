@@ -1,0 +1,45 @@
+.container {
+  border: 1px grey dashed;
+
+  min-width: 300px;
+  max-width: 450px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px 20px 0px 20px;
+
+}
+
+.hr {
+  border: none;
+  border-top: 1px grey dashed;
+  width: 80%;
+}
+
+
+.trackAuthor {
+  padding: 10px 0px 5px 0px;
+  text-align: center;
+  text-transform:capitalize;
+
+
+}
+
+.trackName {
+  padding: 5px 0px 15px 0px;
+  text-align: center;
+  text-transform:capitalize;
+
+}
+
+.trackComment {
+  padding: 10px 10px 10px 10px;
+  text-align: center;
+  font-size: 12px;
+  color: grey;
+
+  max-width: 75%;
+}
