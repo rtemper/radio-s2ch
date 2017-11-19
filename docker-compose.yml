@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  mpd:
+    build: './docks/mpd/.'
+    volumes:
+      - 'music:/home/mpd/music'
+    ports:
+      - "6601:6601"
+      - "6602:6602"
+    depends_on:
+      - icecast
+
+  icecast:
+    build: './docks/icecast/.'
+    ports:
+      - "8765:8765"
+
+volumes:
+  music:
