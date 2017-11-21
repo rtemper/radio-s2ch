@@ -1,6 +1,7 @@
 version: '3'
 
 services:
+
   mpd:
     build: './docks/mpd/.'
     volumes:
@@ -11,10 +12,76 @@ services:
     depends_on:
       - icecast
 
+  mpd-watcher:
+    image: 'radio-backend'
+    env_file:
+      - ./backend/backend/env/prod
+    command: /bin/bash -c "cd /code && python3.6 -m backend.scripts.watcher"
+    restart: always
+    depends_on:
+      - redis
+      - postgres
+      - radio
+
+  celery:
+    image: 'radio-backend'
+    env_file:
+      - ./backend/backend/env/prod
+    command: /bin/bash -c "cd code && celery -A backend worker -l info -E"
+    volumes:
+      - 'music:/home/mpd/music'
+
   icecast:
     build: './docks/icecast/.'
     ports:
       - "8765:8765"
 
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_DB=radio
+      - POSTGRES_USER=radio_admin
+      - POSTGRES_PASSWORD=radio_admin
+    ports:
+      - "5432:5432"
+    volumes:
+      - 'pgdata:/var/lib/postgresql/data/'
+
+  redis:
+    image: redis
+
+  radio:
+    build:
+      context: ./
+      dockerfile: './docks/radio-backend/Dockerfile'
+    image: 'radio-backend'
+    env_file:
+      - ./backend/backend/env/prod
+    volumes:
+      - 'static:/static'
+      - 'music:/home/mpd/music'
+    command: /bin/bash -c "
+      python3.6 /code/manage.py migrate &&
+      python3.6 /code/manage.py collectstatic --noinput &&
+      python3.6 /code/manage.py runworker &
+      cd /code && daphne -b 0.0.0.0 -p 8000 backend.asgi:channel_layer"
+
+    ports:
+      - "8000:8000"
+
+  nginx:
+    build: './docks/nginx/.'
+    volumes:
+      - 'static:/static'
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - radio 
+
+
 volumes:
   music:
+  pgdata:
+  code:
+  static:
