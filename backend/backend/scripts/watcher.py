@@ -54,7 +54,7 @@ def listen_mpd_events():
     last_mpd_state = None
 
     client = MPDClient()
-    client.connect('localhost', 6601)
+    client.connect('mpd', 6601)
     print("Connected to MPD daemon, listening...")
 
     ev = None
