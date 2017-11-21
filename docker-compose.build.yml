@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  frontend:
+    build:
+      context: ./
+      dockerfile: './docks/radio-frontend/Dockerfile'
+    volumes:
+      - 'npm_cache:/root/.npm'
+      - 'node_modules:/app/node_modules'
+      - 'static:/static'
+    command: '/bin/bash /app/build.sh'
+
+volumes:
+  npm_cache:
+  node_modules:
+  static:
